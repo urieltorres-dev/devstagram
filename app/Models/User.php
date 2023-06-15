@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
         'username',
     ];
+    //Crear un método para la relación Usuario - Post (Modelo ER)
+    public function post(){
+        //Relación one to many en donde un usuario puede tener múltiples Post de publicación
+        return $this->hasMany(Post::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

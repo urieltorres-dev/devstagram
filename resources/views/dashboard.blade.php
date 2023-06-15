@@ -23,6 +23,34 @@
                     <span class="font-normal">Post</span>
                 </p>
             </div>
+
+            <!-- tabla para ver las publicaciones -->
+            <div class="container grid px-6 mx-auto">
+                <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full overflow-x-auto">
+                        <table class="w-3/4 mx-auto my-8 border border-black">
+                            <thead>
+                                <tr class="border-b border-black">
+                                    <th class="px-4 py-3 border-r border-black">Titulo</th>
+                                    <th class="px-4 py-3 border-r border-black">Descripción</th>
+                                    <th class="px-4 py-3 border-r border-black">Imagen</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($posts as $post)
+                                <tr class="text-gray-700 dark:text-gray-400 border-b border-black">
+                                    <td class="px-4 py-3 border-r border-black">{{$post->titulo}}</td>
+                                    <td class="px-4 py-3 border-r border-black">{{$post->descripcion}}</td>
+                                    <td class="px-4 py-3 border-r border-black">{{$post->imagen }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection

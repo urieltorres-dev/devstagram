@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -19,7 +21,8 @@ class PostController extends Controller
         //Aplicamos un helper para revisar que el usuario esta autenticado
         //dd(auth()->user());
         //Retornamos a la vista "dashboard"
-        return view('dashboard');
+        $posts = DB::table('post')->where('user_id', auth()->user()->id)->get();
+        return view('dashboard',['posts' => $posts]);
     }
 
     //Crear metodo create para mostrar el formulario d publicacion
@@ -35,5 +38,27 @@ class PostController extends Controller
             'descripcion' => 'required',
             'imagen' => 'required'
         ]);
+
+        //Guardar los campos en el modelo Post
+        /*Post::create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $request->imagen,
+            //Identificar el usuario autenticado para guardarlo
+            'user_id' =>auth()->user()->id
+        ]);
+        */
+
+        //Guardar la información con relaciones (Modelo ER)
+        // "post" es el noombre de la relación
+        $request->user()->post()->create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $request->imagen,
+            'user_id' =>auth()->user()->id
+        ]);
+
+        //Redireccionar al muro principal después de guardar el Post de publicación
+        return redirect()->route('post.index');
     }
 }

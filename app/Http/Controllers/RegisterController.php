@@ -20,7 +20,7 @@ class RegisterController extends Controller
         // "dd" significa "dump and die" imprime lo que se tiene en el valor "dd", se detiene la ejecucion total de Laravel
         // dd($request)->get('username');
 
-        //Modificar el $request para que nose repitan los "username"
+        //Modificar el $request para que no se repitan los "username"
         $request->request->add(['username'=>Str::slug($request->username)]);
 
         // Validar campos de formulario
