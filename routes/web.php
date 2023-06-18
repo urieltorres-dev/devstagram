@@ -31,14 +31,13 @@ Route::view('/cv', 'cv');
 
 // Ruta para registro de usuarios
 Route::get('/register', [RegisterController::class, 'index'])->name("register");
+
 // Ruta para enviar datos al servidor
 Route::post('/register', [RegisterController::class, 'store']);
 
-//Ruta para vista del muro de perfil de usuario autentucado
-Route::get('/muro',[PostController::class,'index'])->name('post.index');
-
 //Ruta para el login
 Route::get('/login',[LoginController::class,'index'])->name('login');
+
 //Ruta para enviar datos al servidor
 Route::post('/login',[LoginController::class,'store']);
 
@@ -53,4 +52,7 @@ Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagnees.sto
 
 //Ruta para almacenar las imagenes
 Route::post('/posts', [PostController::class, 'store'])->name('post.store');
+
+//Ruta para vista del muro de perfil de usuario autentucado
+Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
 
