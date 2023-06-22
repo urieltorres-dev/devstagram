@@ -24,7 +24,7 @@ class User extends Authenticatable
         'username',
     ];
     //Crear un método para la relación Usuario - Post (Modelo ER)
-    public function post(){
+    public function posts(){
         //Relación one to many en donde un usuario puede tener múltiples Post de publicación
         return $this->hasMany(Post::class);
     }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -13,11 +12,12 @@ class PostController extends Controller
     public function __construct()
     {
         //Proteger el constructor con autenticacion, es decir antes de ejecutar el metodo index debemos pasar el parametro de autenticacion
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     //Para mostrar el muro de perfil
-    public function index(User $user){
+    public function index(User $user)
+    {
         //dd('Estamos en el muro del usuario');
         //Aplicamos un helper para revisar que el usuario esta autenticado
         //dd(auth()->user());
@@ -39,13 +39,15 @@ class PostController extends Controller
     }
 
     //Crear metodo create para mostrar el formulario d publicacion
-    public function create(){
+    public function create()
+    {
         //dd('Creando post');
         return view('posts.create');
     }
 
     //Método para guardar imágenes
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
         $this->validate($request, [
             'titulo' => 'required|max:255',
             'descripcion' => 'required',
@@ -64,7 +66,7 @@ class PostController extends Controller
 
         //Guardar la información con relaciones (Modelo ER)
         // "post" es el noombre de la relación
-        $request->user()->post()->create([
+        $request->user()->posts()->create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
@@ -73,5 +75,14 @@ class PostController extends Controller
 
         //Redireccionar al muro principal después de guardar el Post de publicación
         return redirect()->route('post.index',  auth()->user()->username);
+    }
+
+    //Mostrar imagenes
+    public function show(User $user, Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post,
+            'user' => $user
+        ]);
     }
 }

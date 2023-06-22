@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     //Forzar el nombre de la tabla Post en singular
-    protected $table = 'post';
+    //protected $table = 'post';
 
     //Protegemos la información para guardarla en la BD
     protected $fillable=[

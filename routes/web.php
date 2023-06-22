@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\ImagenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -53,6 +54,10 @@ Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagnees.sto
 //Ruta para almacenar las imagenes
 Route::post('/posts', [PostController::class, 'store'])->name('post.store');
 
+//Ruta para mostrar post de publicación de imágenes
+Route::get('{user:username}/posts/{post}', [PostController::class, 'show'])->name('post.show');
+
 //Ruta para vista del muro de perfil de usuario autentucado
 Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
 
+Route::post('{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentarios.store');
