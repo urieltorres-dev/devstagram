@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Comentario;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -20,7 +21,15 @@ class Post extends Model
     ];
 
     //Creamos la relación de un Post pertenece a un User(relación inversa)
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class)->selected(['name', 'username']);
+    }
+
+    //Creamos la relacion Post Comentario
+    public function comentarios()
+    {
+        //Un post tiene muchos comentarios
+        return $this->hasMany(Comentario::class);
     }
 }

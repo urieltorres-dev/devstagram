@@ -57,7 +57,11 @@ Route::post('/posts', [PostController::class, 'store'])->name('post.store');
 //Ruta para mostrar post de publicación de imágenes
 Route::get('{user:username}/posts/{post}', [PostController::class, 'show'])->name('post.show');
 
+//Ruta para generar comentarios
+Route::post('{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentarios.store');
+
 //Ruta para vista del muro de perfil de usuario autentucado
 Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
 
-Route::post('{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentarios.store');
+//Ruta para eliminar un comentario
+Route::delete('/{user:username}/posts/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
