@@ -68,26 +68,30 @@
                 <!-- Revisamos si existen comentarios -->
                 @if ($post->comentarios()->count())
                     @foreach ($post->comentarios as $comentario)
-                        <div class="p-5 border-gray-300 border-b">
+                        <div class="p-5 border-gray-300 border-b flex justify-between items-center">
                             <!-- Imprimimos el usuario que cuenta y le ponemos un vinculo a su perfil -->
-                            <a href="{{route('post.index', $comentario->user)}}" class="font-bold">
-                                {{$comentario->user->username}}
-                            </a>
-                            <p>{{$comentario->comentario}}</p>
-                            <p class="text-sm text-gray-500">{{$comentario->created_at->diffForHumans()}}</p>
+                            <div class="">
+                                <a href="{{route('post.index', $comentario->user)}}" class="font-bold">
+                                    {{$comentario->user->username}}
+                                </a>
+                                <p>{{$comentario->comentario}}</p>
+                                <p class="text-sm text-gray-500">{{$comentario->created_at->diffForHumans()}}</p>
+                            </div>
+                            <!-- Eliminar comentarios -->
+                            <div class="">
+                                @auth
+                                    @if (auth()->user()->id === $comentario->user->id)
+                                        <form action="{{route('comentarios.destroy', ['post' => $post, 'user' => $user, 'comentario' => $comentario])}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit"
+                                            value="Eliminar comentario"
+                                            class="bg-red-500 hover:bg-red-600 transition-colors text-white p-2 rounded-lg cursor-pointer" />
+                                        </form>
+                                    @endif
+                                @endauth
+                            </div>
                         </div>
-                        <!-- Eliminar comentarios -->
-                        @auth
-                            @if (auth()->user()->id === $comentario->user->id)
-                                <form action="{{route('comentarios.destroy', ['post' => $post, 'user' => $user, 'comentario' => $comentario])}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit"
-                                    value="Eliminar comentario"
-                                    class="bg-red-500 hover:bg-red-600 transition-colors text-white p-2 rounded-lg cursor-pointer" />
-                                </form>
-                            @endif
-                        @endauth
                     @endforeach
                     
                 @else
