@@ -81,7 +81,7 @@
                             <div class="">
                                 @auth
                                     @if (auth()->user()->id === $comentario->user->id)
-                                        <form action="{{route('comentarios.destroy', ['post' => $post, 'user' => $user, 'comentario' => $comentario])}}" method="POST">
+                                        <form action="{{route('comentarios.destroy', $comentario)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit"

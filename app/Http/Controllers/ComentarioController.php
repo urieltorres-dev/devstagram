@@ -30,13 +30,22 @@ class ComentarioController extends Controller
     }
 
     // Definimos el metodo destroy
-    public function destroy(User $user, Post $post, Comentario $comentario)
+    public function destroy(Comentario $comentario)
     {
         //dd($comentario);
-        // Eliminamos el comentario
-        $comentario->delete();
 
-        // Redireccionamos a la vista del post
-        return back()->with('mensaje', 'Comentario eliminado con éxito');
+
+        // Validamos que el usuario autenticado sea el dueño del comentario
+        if (auth()->user()->id === $comentario->user_id) {
+            // Eliminamos el comentario
+            $comentario->delete();
+
+            // Redireccionamos a la vista del post
+            return back()->with('mensaje', 'Comentario eliminado con éxito');
+        } else {
+            // Redireccionamos a la vista del post
+            return back()->with('mensaje', 'No tienes permiso para eliminar este comentario');
+        }
+        
     }
 }

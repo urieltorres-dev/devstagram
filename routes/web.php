@@ -64,4 +64,4 @@ Route::post('{user:username}/posts/{post}', [ComentarioController::class, 'store
 Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
 
 //Ruta para eliminar un comentario
-Route::delete('/{user:username}/posts/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
+Route::delete('/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');

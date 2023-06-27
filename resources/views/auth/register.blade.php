@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('titulo')
     Registrate a Devstagram
 @endsection
