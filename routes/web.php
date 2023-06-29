@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\ImagenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -25,7 +27,14 @@ Route::get('/', function () {
 });
 
 // Crear ruta para alumnos
-Route::view('/alumnos', 'alumnos');
+Route::get('/alumnos', [AlumnoController::class, 'index'])->name("alumnos");
+// Ruta para enviar datos al servidor 
+Route::post('/alumnos', [AlumnoController::class, 'store']);
+
+// Crear ruta para grupos
+Route::get('/grupos', [GrupoController::class, 'index'])->name("grupos");
+// Ruta para enviar datos al servidor 
+Route::post('/grupos', [GrupoController::class, 'store']);
 
 // Crear ruta para cv
 Route::view('/cv', 'cv');
