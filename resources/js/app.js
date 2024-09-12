@@ -18,7 +18,7 @@ const dropzone = new Dropzone('#dropzone',{
             imagenPublicada.size = 1234;
             imagenPublicada.name = document.querySelector('[name="imagen"]').value;
             this.options.addedfile.call(this, imagenPublicada);
-            this.options.thumbnail.call(this, imagenPublicada, '/uploads/${imagenPublicada.name}');
+            this.options.thumbnail.call(this, imagenPublicada, `/uploads/${imagenPublicada.name}`);
             imagenPublicada.previewElement.classList.add('dz-success', 'dz-complete');
         }
     }
