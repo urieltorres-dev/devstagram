@@ -93,9 +93,8 @@
                             </div>
                         </div>
                     @endforeach
-                    
                 @else
-                    <p class="p-10 text-center">No hay comentarios aun</p>
+                    <p class="p-10 text-center">No hay comentarios aún.</p>
                 @endif
             </div>
         </div>
