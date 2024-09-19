@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 
@@ -66,6 +67,10 @@ Route::post('/login',[LoginController::class,'store']);
 //* Ruta para el logout
 //Ruta para el logout
 Route::post('/logout',[LogoutController::class,'store'])->name('logout');
+
+//* Rutas para el perfil
+Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
 //* Rutas para los post
 //Ruta para el formulario de post de publicación
