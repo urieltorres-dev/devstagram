@@ -9,6 +9,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 
@@ -96,3 +97,7 @@ Route::delete('/comentarios/{comentario}',[ComentarioController::class,'destroy'
 //* Rutas para los likes
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('post.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('post.likes.destroy');
+
+//* Rutas para dar y quitar el follow
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
