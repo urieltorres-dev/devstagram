@@ -12,6 +12,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,7 @@ use App\Http\Controllers\ComentarioController;
 */
 
 // Ruta para página principal
-Route::get('/', function () {
-    return view('principal');
-});
+Route::get('/', HomeController::class)->name('home');
 
 /**
  * *    Ruta para un ejercicio solicitado en clase
@@ -101,3 +100,5 @@ Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('
 //* Rutas para dar y quitar el follow
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
+

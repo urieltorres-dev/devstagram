@@ -23,7 +23,7 @@ class Post extends Model
     //Creamos la relación de un Post pertenece a un User(relación inversa)
     public function user()
     {
-        return $this->belongsTo(User::class)->selected(['name', 'username']);
+        return $this->belongsTo(User::class)->select(['name', 'username']);
     }
 
     //Creamos la relacion Post Comentario

@@ -24,7 +24,7 @@ class PostController extends Controller
         //dd(auth()->user());
 
         //Obtenemos los post de publicación del usuario
-        $posts = Post::where('user_id', $user->id)->paginate(4);
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(4);
         //Mostramos los posts del usuario
         //dd($post);
 
