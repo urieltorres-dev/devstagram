@@ -97,26 +97,9 @@
     <!--Recibir y mostrar los Post de publicación, se reciben desde PostController-->
     <section class="container mx-auto mt-10">
         <h2 class="text-4xl text-center font-black my-10">Publicaciones</h2>
-        @if ($posts->count())
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                @foreach ($posts as $post)
-                    <div>
-                        <!--Pasamos el valor de las variables post y username al URL-->
-                        <a href="{{route('post.show' , ['post' => $post, 'user' => $user])}}">
-                            <img src="{{asset('uploads'.'/'.$post->imagen)}}" alt="Imagen del Post {{$post->titulo}}">
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-
-            <!-- Paginación de los post-->
-            <div class="container mx-auto my-10">
-                {{$posts->links()}}
-            </div>
-
-        @else
-            <p class="text-gray-600 uppercase text-sm text-center font-bold"> No existen publicaciones</p>
-        @endif
+        
+        <x-listar-post :posts="$posts" />
+        
     </section>
 
 @endsection
