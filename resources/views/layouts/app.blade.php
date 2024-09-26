@@ -10,6 +10,8 @@
 
         @stack('styles')
 
+        @livewireStyles
+
     </head>
     <body class="bg-gray-100">
         <!-- encabezado de la pagina-->
@@ -64,5 +66,7 @@
         <footer class="text-center p-5 text-gray-500 font-bold">
             Depstagram UPV - derechos reservados {{now()->year}}
         </footer>
+
+        @livewireScripts
     </body>
 </html>
