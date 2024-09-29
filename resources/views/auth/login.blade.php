@@ -33,7 +33,7 @@
                     @error('email')
                         border-red-500
                     @enderror"
-                    value="{{old('email')}}"
+                    value="{{old('email', 'demo@example.com')}}"
                 />
                 @error('email')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
@@ -54,7 +54,7 @@
                     @error('password')
                         border-red-500
                     @enderror"
-                    value="{{old('password')}}"
+                    value="123456"
                 />
                 <!-- Mostrar directiva de registro de nombre obligatorio -->
                 @error('password')

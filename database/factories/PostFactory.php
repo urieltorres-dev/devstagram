@@ -20,9 +20,7 @@ class PostFactory extends Factory
             //Llenamos con datos ficticios la tabla de Post
             'titulo' => $this->faker->sentence(5),
             'descripcion' => $this->faker->sentence(26),
-            'imagen' => $this->faker->uuid() . '.jpg',
-            //Agregamos la prueba para 3 usuarios
-            'user_id' => $this->faker->randomElement([1, 2, 3]),
+            'imagen' =>  rand(1, 9) . '.jpg',
         ];
     }
 }

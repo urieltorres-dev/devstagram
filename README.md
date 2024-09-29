@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Devstagram
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este proyecto fue desarrollado como parte de la asignatura **"Tecnologías y aplicaciones en internet"**. El objetivo del proyecto fue aprender los fundamentos del framework Laravel. El objetivo del proyecto era aprender los fundamentos del framework Laravel. El proyecto se inició en clase, pero quedó incompleto, ya que, con los conocimientos adquiridos durante su desarrollo, se nos solicitó otro proyecto como entrega final de la asignatura (puedes verlo [aquí](https://github.com/urieltorres-dev/sistema-de-administracion-de-proyectos).). Tiempo después decidí terminar el proyecto por mi cuenta para continuar aprendiendo y mejorar mis habilidades en Laravel.
 
-## About Laravel
+## Descripción del Proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Devstagram** es una red social para desarrolladores, inspirada en redes sociales actuales como Instagram o X, donde los usuarios pueden compartir imágenes, comentar y dar "me gusta" a las publicaciones de otros desarrolladores. La aplicación está desarrollada en **Laravel** y permite la creación de perfiles, la publicación de imágenes, la interacción a través de comentarios y el seguimiento de otros usuarios.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Registro y autenticación de usuarios.
+- Publicación de imágenes con descripción.
+- Sistema de comentarios en las publicaciones.
+- "Me gusta" en las publicaciones.
+- Seguimiento entre usuarios.
+- Perfil de usuario con imagen personalizada.
+- Interfaz amigable y responsive.
 
-## Learning Laravel
+## Tecnologías Utilizadas
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
++ **Lenguajes de Programación:** PHP, HTML, CSS y JavaScript
++ **Base de Datos:** MySQL
++ **Frameworks:** Laravel y Tailwind CSS
++ **Herramientas de Desarrollo:** Docker, Visual Studio Code
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Instalación y Configuración
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 
-## Laravel Sponsors
+1. **Clona el Repositorio:**
+```bash
+git clone https://github.com/urieltorres-dev/devstagram.git
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. **Instala las dependencias de PHP y JavaScript:**
+```bash
+composer install
+npm install
+npm run dev
+```
 
-### Premium Partners
+3. **Configura el Entorno:**
++ Asegúrate de tener PHP y MySQL instalados.
++ Configura los parámetros de la base de datos en el archivo `.env`.
++ Ejecuta las migraciones y seeders para crear las tablas y cargar datos de prueba:
+```bash
+php artisan migrate --seed
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+4. **Ejecuta el Proyecto:**
++ Inicia el servidor de desarrollo de Laravel:
+```bash
+php artisan serve
+```
++ Accede a la aplicación a través de tu navegador en `http://localhost:8000`.
 
-## Contributing
+## Capturas de Pantalla
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+A continuación se muestran algunas capturas de pantalla de la aplicación:
 
-## Code of Conduct
+![Login](public/img/ss1.png)
+![Perfil de usuario](public/img/ss2.png)
+![Post](public/img/ss3.png)
+![Home / News Feed](public/img/ss4.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Demo
 
-## Security Vulnerabilities
+Por el momento la demo no está  disponible.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Licencia
 
-## License
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](https://choosealicense.com/licenses/mit/) para más detalles.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Contacto
+
+Para más información o consultas, puedes contactarme a través de [urieltorres.dev@gmail.com](mailto:urieltorres.dev@gmail.com) o en [github.com/urieltorres-dev](https://github.com/urieltorres-dev).
+
