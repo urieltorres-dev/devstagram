@@ -20,7 +20,7 @@ Este proyecto fue desarrollado como parte de la asignatura **"Tecnologías y apl
 
 + **Lenguajes de Programación:** PHP, HTML, CSS y JavaScript
 + **Base de Datos:** MySQL
-+ **Frameworks:** Laravel y Tailwind CSS
++ **Frameworks:** Laravel, Tailwind CSS y Livewire.
 + **Herramientas de Desarrollo:** Docker, Visual Studio Code
 
 ## Instalación y Configuración
