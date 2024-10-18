@@ -28,41 +28,82 @@ Este proyecto fue desarrollado como parte de la asignatura **"Tecnologías y apl
 
 Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 
-1. **Clona el repositorio:**
+1. Clona el repositorio:
 ```bash
 git clone https://github.com/urieltorres-dev/devstagram.git
 ```
 
-2. **Instala las dependencias de PHP y JavaScript:**
+2. Instala las dependencias de Composer:
 ```bash
 composer install
-npm install
-npm run dev
 ```
 
-3. **Configura el entorno:**
-+ Asegúrate de tener PHP y MySQL instalados.
-+ Configura los parámetros de la base de datos en el archivo `.env`.
-+ Ejecuta las migraciones y seeders para crear las tablas y cargar datos de prueba:
+3. Instala las dependencias de Node.js:
+```bash
+npm install
+```
+
+4. Configura el archivo `.env` y genera la clave de la aplicación:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+5. Ejecuta las migraciones y seeders:
 ```bash
 php artisan migrate --seed
 ```
 
-4. **Ejecuta el proyecto:**
-+ Inicia el servidor de desarrollo de Laravel:
+6. Inicia el servidor de desarrollo:
 ```bash
 php artisan serve
 ```
-+ Accede a la aplicación a través de tu navegador en `http://localhost:8000`.
+
+7. Ejecuta los assets de frontend:
+```bash
+npm run dev
+```
+
+8. Accede a la aplicación a través de tu navegador en `http://localhost:8000`.
 
 ## Capturas de pantalla
 
 A continuación se muestran algunas capturas de pantalla de la aplicación:
 
-![Login](public/img/ss1.png)
-![Perfil de usuario](public/img/ss2.png)
-![Post](public/img/ss3.png)
-![Home / News Feed](public/img/ss4.png)
+## Capturas de pantalla
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="public/img/ss1.png" width="400" alt="Login">
+      <br><b>Login</b>
+    </td>
+    <td align="center">
+      <img src="public/img/ss2.png" width="400" alt="Register">
+      <br><b>Register</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="public/img/ss3.png" width="400" alt="Perfil de usuario">
+      <br><b>Perfil de usuario</b>
+    </td>
+    <td align="center">
+      <img src="public/img/ss4.png" width="400" alt="Home / News Feed">
+      <br><b>Home / News Feed</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="public/img/ss5.png" width="400" alt="Post">
+      <br><b>Post</b>
+    </td>
+    <td align="center">
+      <img src="public/img/ss6.png" width="400" alt="Crear post">
+      <br><b>Crear post</b>
+    </td>
+  </tr>
+</table>
 
 ## Demo
 
